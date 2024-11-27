@@ -17,4 +17,8 @@ export default function App() {
       </Stack.Navigator>
     </NavigationContainer>
   );
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> ab12e72a337abb0df97b65b67747bd4c50be2220
