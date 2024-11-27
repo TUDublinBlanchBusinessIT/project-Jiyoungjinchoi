@@ -1,15 +1,10 @@
 import React from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  TextInput,
-  Image,
-  TouchableOpacity,
-  ScrollView,
-} from 'react-native';
+import { StyleSheet, Text, View, TextInput, Image, TouchableOpacity, ScrollView } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
-export default function App() {
+export default function MainScreen() {
+  const navigation = useNavigation();
+
   return (
     <ScrollView style={styles.container}>
       {/* Header */}
@@ -52,7 +47,7 @@ export default function App() {
 
       {/* Footer Navigation */}
       <View style={styles.footer}>
-        <TouchableOpacity style={styles.navButton}>
+        <TouchableOpacity style={styles.navButton} onPress={() => navigation.navigate('Menu')}>
           <Image
             source={require('../assets/menuicon.png')}
             style={styles.icon}
@@ -90,13 +85,8 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   logo: {
-<<<<<<< HEAD
     width: 300,
     height: 200,
-=======
-    width: 400,
-    height: 300,
->>>>>>> ab12e72a337abb0df97b65b67747bd4c50be2220
     resizeMode: 'contain',
   },
   searchBar: {
@@ -109,11 +99,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#f9f9f9',
   },
   sectionTitle: {
-<<<<<<< HEAD
     fontSize: 24,
-=======
-    fontSize: 30,
->>>>>>> ab12e72a337abb0df97b65b67747bd4c50be2220
     fontWeight: 'bold',
     marginBottom: 10,
     color: '#333',
@@ -127,31 +113,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   shoeImage: {
-<<<<<<< HEAD
     width: 130,
     height: 130,
-=======
-    width: 200,
-    height: 200,
->>>>>>> ab12e72a337abb0df97b65b67747bd4c50be2220
     resizeMode: 'contain',
     marginBottom: 10,
   },
   shoeText: {
-<<<<<<< HEAD
     fontSize: 20,
-=======
-    fontSize: 24,
->>>>>>> ab12e72a337abb0df97b65b67747bd4c50be2220
     fontWeight: '500',
     color: '#555',
   },
   priceText: {
-<<<<<<< HEAD
     fontSize: 14,
-=======
-    fontSize: 16,
->>>>>>> ab12e72a337abb0df97b65b67747bd4c50be2220
     fontWeight: '600',
     color: '#333',
     marginTop: 5,
@@ -167,27 +140,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   icon: {
-<<<<<<< HEAD
     width: 30,
     height: 30,
-=======
     width: 40,
     height: 40,
->>>>>>> ab12e72a337abb0df97b65b67747bd4c50be2220
     resizeMode: 'contain',
     marginBottom: 5,
   },
   navText: {
-<<<<<<< HEAD
     fontSize: 14,
     fontWeight: 'bold',
     color: '#696969',
   },
 });
-=======
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: '#696969',
-  },
-});
->>>>>>> ab12e72a337abb0df97b65b67747bd4c50be2220
