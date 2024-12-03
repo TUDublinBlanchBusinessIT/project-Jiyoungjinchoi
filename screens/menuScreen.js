@@ -60,29 +60,30 @@ export default function MenuScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#f0f8ff',
     paddingHorizontal: 20,
   },
   header: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center', // Center the header
     marginTop: 40,
     marginBottom: 20,
+  },
+  headerIcon: {
+    width: 30,
+    height: 30,
+    resizeMode: 'contain',
+    marginRight: 10, // Space between the house icon and the "Menu" text
   },
   headerText: {
     fontSize: 24,
     fontWeight: 'bold',
-  },
-  headerIcon: {
-    position: 'absolute', // Position the house icon to the left
-    left: 0,
-    width: 30,
-    height: 30,
-    resizeMode: 'contain',
+    flex: 1, // Ensures the text stays centered
+    textAlign: 'center',
+    marginRight: 40, // Extra margin to balance the header visually
   },
   menuItemContainer: {
-    marginTop: 40, // Move the menu closer to the center
+    marginTop: 40,
   },
   menuItem: {
     flexDirection: 'row',
