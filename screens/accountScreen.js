@@ -43,15 +43,15 @@ export default function AccountScreen({ navigation }) {
           value={password}
           onChangeText={setPassword}
         />
-
+        <br></br>
         <TouchableOpacity style={styles.signInButton} onPress={handleSignIn}>
           <Text style={styles.buttonText}>Sign In</Text>
         </TouchableOpacity>
-
+        <br></br>
         <TouchableOpacity onPress={() => alert('Forgot Password functionality')}>
           <Text style={styles.forgotPassword}>Forgotten your password?</Text>
         </TouchableOpacity>
-
+        <br></br>
         <TouchableOpacity
           style={styles.registerButton}
           onPress={() => navigation.navigate('Register')}
@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#f9f9f9',
   },
   signInButton: {
-    backgroundColor: '#007BFF',
+    backgroundColor: '#4682b4',
     paddingVertical: 12,
     borderRadius: 5,
     marginBottom: 10,
@@ -119,12 +119,12 @@ const styles = StyleSheet.create({
   },
   forgotPassword: {
     fontSize: 14,
-    color: '#007BFF',
+    color: '#000080',
     textAlign: 'center',
     marginBottom: 10,
   },
   registerButton: {
-    backgroundColor: '#28A745',
+    backgroundColor: '#4682b4',
     paddingVertical: 12,
     borderRadius: 5,
   },
