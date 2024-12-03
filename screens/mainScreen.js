@@ -1,9 +1,9 @@
 import React from 'react';
 import { StyleSheet, Text, View, TextInput, Image, TouchableOpacity, ScrollView } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native'; // Importing useNavigation hook
 
 export default function MainScreen() {
-  const navigation = useNavigation();
+  const navigation = useNavigation(); // Using the useNavigation hook to navigate between screens
 
   return (
     <ScrollView style={styles.container}>
@@ -54,13 +54,16 @@ export default function MainScreen() {
           />
           <Text style={styles.navText}>Menu</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.navButton}>
+        
+        {/* Wishlist Icon: Navigate to WishlistScreen */}
+        <TouchableOpacity style={styles.navButton} onPress={() => navigation.navigate('Wishlist')}>
           <Image
             source={require('../assets/wishlisticon.png')}
             style={styles.icon}
           />
           <Text style={styles.navText}>Wishlist</Text>
         </TouchableOpacity>
+        
         <TouchableOpacity style={styles.navButton}>
           <Image
             source={require('../assets/accounticon.png')}
