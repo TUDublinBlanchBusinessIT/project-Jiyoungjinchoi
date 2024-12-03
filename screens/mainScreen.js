@@ -64,7 +64,7 @@ export default function MainScreen() {
           <Text style={styles.navText}>Wishlist</Text>
         </TouchableOpacity>
         
-        <TouchableOpacity style={styles.navButton}>
+        <TouchableOpacity style={styles.navButton} onPress={() => navigation.navigate('Account')}>
           <Image
             source={require('../assets/accounticon.png')}
             style={styles.icon}
