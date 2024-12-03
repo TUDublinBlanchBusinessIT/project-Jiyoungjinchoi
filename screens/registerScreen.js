@@ -65,7 +65,7 @@ export default function RegisterScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#f0f8ff',
     paddingHorizontal: 20,
   },
   header: {
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   headerText: {
-    fontSize: 24,
+    fontSize: 45,
     fontWeight: 'bold',
     flex: 1,
     textAlign: 'center',
@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#f9f9f9',
   },
   registerButton: {
-    backgroundColor: '#28A745',
+    backgroundColor: '#4682b4',
     paddingVertical: 12,
     borderRadius: 5,
     marginBottom: 10,
