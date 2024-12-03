@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     marginRight: 10, // Space between the house icon and the "Menu" text
   },
   headerText: {
-    fontSize: 24,
+    fontSize: 50,
     fontWeight: 'bold',
     flex: 1, // Ensures the text stays centered
     textAlign: 'center',
@@ -93,13 +93,13 @@ const styles = StyleSheet.create({
     borderBottomColor: '#ccc',
   },
   menuItemText: {
-    fontSize: 18,
+    fontSize: 22,
     marginLeft: 10,
     fontWeight: '500',
   },
   icon: {
-    width: 24,
-    height: 24,
+    width: 28,
+    height: 28,
     resizeMode: 'contain',
   },
   subMenuItem: {
