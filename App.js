@@ -5,6 +5,7 @@ import MainScreen from './screens/mainScreen';
 import MenuScreen from './screens/menuScreen'; 
 import WishlistScreen from './screens/wishlistScreen';
 import AccountScreen from './screens/accountScreen';
+import RegisterScreen from './screens/registerScreen';
 
 const Stack = createStackNavigator();
 
@@ -31,6 +32,11 @@ export default function App() {
           name="Account"
           component={AccountScreen}
           options={{ headerShown: false }} // Hide header for the account screen
+        />
+        <Stack.Screen
+          name="Register"
+          component={RegisterScreen}
+          options={{ headerShown: false }} // Hide header for the register screen
         />
       </Stack.Navigator>
     </NavigationContainer>
