@@ -1,49 +1,57 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView } from 'react-native';
 
 export default function MenuScreen({ navigation }) {
+  const [showDropdown, setShowDropdown] = useState(false);
+
+  const brands = [
+    'Nike',
+    'Adidas',
+    'New Balance',
+    'Puma',
+    'Vans',
+    'Converse',
+    'Crocs',
+    'UGG',
+    'Fila',
+  ];
+
   return (
     <ScrollView style={styles.container}>
       {/* Header */}
       <View style={styles.header}>
+        <TouchableOpacity onPress={() => navigation.navigate('Main')}>
+          <Image
+            source={require('../assets/houseicon.png')}
+            style={styles.headerIcon}
+          />
+        </TouchableOpacity>
         <Text style={styles.headerText}>Menu</Text>
       </View>
 
-      {/* Shoe Icon */}
-      <View style={styles.shoeContainer}>
-        <Image
-          source={require('../assets/shoeicon.png')}
-          style={styles.shoeIcon}
-        />
-      </View>
+      {/* All Brands */}
+      <View style={styles.menuItemContainer}>
+        <TouchableOpacity
+          style={styles.menuItem}
+          onPress={() => setShowDropdown(!showDropdown)}
+        >
+          <Image
+            source={require('../assets/shoeicon.png')}
+            style={styles.icon}
+          />
+          <Text style={styles.menuItemText}>All Brands</Text>
+        </TouchableOpacity>
 
-      {/* Menu Items */}
-      <View style={styles.menuItemsContainer}>
-        <TouchableOpacity style={styles.menuItem} onPress={() => alert('Go to Wishlist')}>
-          <Text style={styles.menuItemText}>Wishlist</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.menuItem} onPress={() => alert('Go to Account')}>
-          <Text style={styles.menuItemText}>Account</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.menuItem} onPress={() => alert('Go to Settings')}>
-          <Text style={styles.menuItemText}>Settings</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.menuItem} onPress={() => alert('Go to Orders')}>
-          <Text style={styles.menuItemText}>Orders</Text>
-        </TouchableOpacity>
-      </View>
-
-      {/* Footer Navigation */}
-      <View style={styles.footer}>
-        <TouchableOpacity style={styles.footerButton} onPress={() => navigation.navigate('Home')}>
-          <Text style={styles.footerText}>Home</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.footerButton} onPress={() => alert('Go to Cart')}>
-          <Text style={styles.footerText}>Cart</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.footerButton} onPress={() => alert('Go to Profile')}>
-          <Text style={styles.footerText}>Profile</Text>
-        </TouchableOpacity>
+        {showDropdown &&
+          brands.map((brand, index) => (
+            <TouchableOpacity key={index} style={styles.subMenuItem}>
+              <Image
+                source={require('../assets/shoeicon.png')}
+                style={styles.icon}
+              />
+              <Text style={styles.subMenuText}>{brand}</Text>
+            </TouchableOpacity>
+          ))}
       </View>
     </ScrollView>
   );
@@ -56,52 +64,54 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   header: {
+    flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'center', // Center the header
     marginTop: 40,
     marginBottom: 20,
   },
   headerText: {
-    fontSize: 32,
+    fontSize: 24,
     fontWeight: 'bold',
-    color: '#333',
   },
-  shoeContainer: {
-    alignItems: 'center',
-    marginBottom: 30,
-  },
-  shoeIcon: {
-    width: 150,
-    height: 150,
+  headerIcon: {
+    position: 'absolute', // Position the house icon to the left
+    left: 0,
+    width: 30,
+    height: 30,
     resizeMode: 'contain',
   },
-  menuItemsContainer: {
-    marginBottom: 40,
+  menuItemContainer: {
+    marginTop: 40, // Move the menu closer to the center
   },
   menuItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
     paddingVertical: 15,
-    paddingHorizontal: 10,
     borderBottomWidth: 1,
     borderBottomColor: '#ccc',
-    alignItems: 'center',
   },
   menuItemText: {
     fontSize: 18,
+    marginLeft: 10,
     fontWeight: '500',
-    color: '#555',
   },
-  footer: {
+  icon: {
+    width: 24,
+    height: 24,
+    resizeMode: 'contain',
+  },
+  subMenuItem: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
-    paddingVertical: 20,
-    borderTopWidth: 1,
-    borderColor: '#ddd',
-  },
-  footerButton: {
     alignItems: 'center',
+    paddingVertical: 10,
+    paddingLeft: 10, // Indent submenu items
+    borderBottomWidth: 1,
+    borderBottomColor: '#eee',
   },
-  footerText: {
+  subMenuText: {
     fontSize: 16,
-    fontWeight: 'bold',
-    color: '#007BFF',
+    color: '#555',
+    marginLeft: 10, // Space between icon and text
   },
 });
