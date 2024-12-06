@@ -6,44 +6,53 @@ export default function MainScreen() {
   const navigation = useNavigation(); // Using the useNavigation hook to navigate between screens
 
   return (
-    <ScrollView style={styles.container}>
-      {/* Header */}
-      <View style={styles.header}>
-        <Image
-          source={require('../assets/SoleMateLogo.jpeg')}
-          style={styles.logo}
+    <View style={styles.container}>
+      <ScrollView style={{ flex: 1 }}>
+        {/* Header */}
+        <View style={styles.header}>
+          <Image
+            source={require('../assets/SoleMateLogo.jpeg')}
+            style={styles.logo}
+          />
+        </View>
+
+        {/* Search Bar */}
+        <TextInput
+          style={styles.searchBar}
+          placeholder="Search"
+          placeholderTextColor="#888"
         />
-      </View>
 
-      {/* Search Bar */}
-      <TextInput
-        style={styles.searchBar}
-        placeholder="Search"
-        placeholderTextColor="#888"
-      />
+        {/* Best Deals Section */}
+        <Text style={styles.sectionTitle}>Best Deals</Text>
+        <View style={styles.dealsContainer}>
+          {/* Shoe 1 */}
+          <TouchableOpacity
+            style={styles.deal}
+            onPress={() => navigation.navigate('ShoeDetails', { shoeName: 'Air Force 1' })} // Navigate to shoe details screen
+          >
+            <Image
+              source={require('../assets/shoes1.jpeg')}
+              style={styles.shoeImage}
+            />
+            <Text style={styles.shoeText}>Air Force 1</Text>
+            <Text style={styles.priceText}>€75</Text>
+          </TouchableOpacity>
 
-      {/* Best Deals Section */}
-      <Text style={styles.sectionTitle}>Best Deals</Text>
-      <View style={styles.dealsContainer}>
-        {/* Shoe 1 */}
-        <View style={styles.deal}>
-          <Image
-            source={require('../assets/shoes1.jpeg')}
-            style={styles.shoeImage}
-          />
-          <Text style={styles.shoeText}>Air Force 1</Text>
-          <Text style={styles.priceText}>€75</Text>
+          {/* Shoe 2 */}
+          <TouchableOpacity
+            style={styles.deal}
+            onPress={() => navigation.navigate('ShoeDetails', { shoeName: 'Air Force Red' })} // Navigate to shoe details screen
+          >
+            <Image
+              source={require('../assets/shoes2.png')}
+              style={styles.shoeImage}
+            />
+            <Text style={styles.shoeText}>Air Force Red</Text>
+            <Text style={styles.priceText}>€89.99</Text>
+          </TouchableOpacity>
         </View>
-        {/* Shoe 2 */}
-        <View style={styles.deal}>
-          <Image
-            source={require('../assets/shoes2.png')}
-            style={styles.shoeImage}
-          />
-          <Text style={styles.shoeText}>Air Force Red</Text>
-          <Text style={styles.priceText}>€89.99</Text>
-        </View>
-      </View>
+      </ScrollView>
 
       {/* Footer Navigation */}
       <View style={styles.footer}>
@@ -54,7 +63,7 @@ export default function MainScreen() {
           />
           <Text style={styles.navText}>Menu</Text>
         </TouchableOpacity>
-        
+
         {/* Wishlist Icon: Navigate to WishlistScreen */}
         <TouchableOpacity style={styles.navButton} onPress={() => navigation.navigate('Wishlist')}>
           <Image
@@ -63,7 +72,7 @@ export default function MainScreen() {
           />
           <Text style={styles.navText}>Wishlist</Text>
         </TouchableOpacity>
-        
+
         <TouchableOpacity style={styles.navButton} onPress={() => navigation.navigate('Account')}>
           <Image
             source={require('../assets/accounticon.png')}
@@ -72,7 +81,7 @@ export default function MainScreen() {
           <Text style={styles.navText}>Account</Text>
         </TouchableOpacity>
       </View>
-    </ScrollView>
+    </View>
   );
 }
 
@@ -81,6 +90,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#f0F8FF',
     paddingHorizontal: 20,
+    paddingBottom: 80, // Space for the footer
   },
   header: {
     alignItems: 'center',
@@ -138,6 +148,11 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderColor: '#ddd',
     paddingVertical: 20,
+    backgroundColor: '#fff', // Optional: Set background for footer to ensure it's visible
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
   },
   navButton: {
     alignItems: 'center',
@@ -145,8 +160,6 @@ const styles = StyleSheet.create({
   icon: {
     width: 30,
     height: 30,
-    width: 40,
-    height: 40,
     resizeMode: 'contain',
     marginBottom: 5,
   },

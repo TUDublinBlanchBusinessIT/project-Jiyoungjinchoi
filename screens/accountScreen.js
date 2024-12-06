@@ -45,7 +45,7 @@ export default function AccountScreen({ navigation }) {
         />
         <br></br>
         <TouchableOpacity style={styles.signInButton} onPress={handleSignIn}>
-          <Text style={styles.buttonText}>Sign In</Text>
+          <Text style={styles.buttonText}>Login</Text>
         </TouchableOpacity>
         <br></br>
         <TouchableOpacity onPress={() => alert('Forgot Password functionality')}>

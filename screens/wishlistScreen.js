@@ -25,10 +25,10 @@ export default function WishlistScreen({ navigation }) {
             style={styles.shoeImage}
           />
           <View style={styles.itemDetails}>
-            <Text style={styles.itemTitle}>Schuh IE - Nike Air Force 1</Text>
+            <Text style={styles.itemTitle}>Nike Air Force 1</Text>
             <View style={styles.sizeContainer}>
               <Text style={styles.sizeText}>Size:</Text>
-              <Text style={styles.sizeOption}>10</Text>
+              <Text style={styles.sizeOption}>9</Text>
             </View>
             <TouchableOpacity
               style={styles.checkbox}
@@ -43,8 +43,11 @@ export default function WishlistScreen({ navigation }) {
       </ScrollView>
 
       {/* Checkout Button */}
-      <TouchableOpacity style={styles.checkoutButton} onPress={() => alert('Proceeding to checkout')}>
-        <Text style={styles.checkoutText}>CHECKOUT</Text>
+      <TouchableOpacity 
+        style={styles.checkoutButton} 
+        onPress={() => navigation.navigate('Checkout')}
+      >
+        <Text style={styles.checkoutText}>Checkout</Text>
       </TouchableOpacity>
     </View>
   );

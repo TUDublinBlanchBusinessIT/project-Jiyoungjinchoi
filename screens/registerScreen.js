@@ -1,14 +1,45 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import { auth, firestore } from '../firebaseConfig';  // Import auth and firestore from firebaseConfig
+import { createUserWithEmailAndPassword } from 'firebase/auth';  // Import Firebase's auth method
+import { doc, setDoc } from 'firebase/firestore';  // Import Firestore methods
 
 export default function RegisterScreen({ navigation }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
-  const handleRegister = () => {
-    // Handle Register logic here
-    console.log('Registering with', email, password, confirmPassword);
+  // Handle Registration logic
+  const handleRegister = async () => {
+    // Check if password and confirm password match
+    if (password !== confirmPassword) {
+      setErrorMessage('Passwords do not match');
+      return;
+    }
+
+    try {
+      // Create a new user with Firebase Authentication
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+
+      // Get the user ID (UID) from Firebase Auth
+      const user = userCredential.user;
+
+      // Create a user document in Firestore under the "users" collection
+      await setDoc(doc(firestore, "users", user.uid), {
+        email: user.email,
+        uid: user.uid,
+        createdAt: new Date(),
+      });
+
+      console.log('User created successfully and saved to Firestore');
+      
+      // Navigate to the main screen after successful registration
+      navigation.navigate('Main');
+    } catch (error) {
+      // If there's an error during registration, show the error message
+      setErrorMessage(error.message);
+    }
   };
 
   return (
@@ -27,6 +58,10 @@ export default function RegisterScreen({ navigation }) {
       {/* Registration Form */}
       <View style={styles.formContainer}>
         <Text style={styles.formTitle}>Create Account</Text>
+
+        {errorMessage ? (
+          <Text style={styles.errorMessage}>{errorMessage}</Text>
+        ) : null}
 
         <TextInput
           style={styles.input}
@@ -115,5 +150,11 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     textAlign: 'center',
+  },
+  errorMessage: {
+    color: 'red',
+    fontSize: 14,
+    textAlign: 'center',
+    marginBottom: 10,
   },
 });
