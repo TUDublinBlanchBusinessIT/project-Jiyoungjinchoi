@@ -1,16 +1,46 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, ScrollView } from 'react-native';
+import { auth, firestore } from '../firebaseConfig';  // Import auth and firestore from firebaseConfig
+import { doc, setDoc } from 'firebase/firestore';  // Firestore methods
 
 export default function CheckoutScreen({ navigation }) {
   const [shippingAddress, setShippingAddress] = useState('');
   const [paymentInfo, setPaymentInfo] = useState('');
   const [contactInfo, setContactInfo] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
-  const handleCheckout = () => {
-    // Handle Checkout logic here
-    console.log('Shipping Address:', shippingAddress);
-    console.log('Payment Info:', paymentInfo);
-    console.log('Contact Info:', contactInfo);
+  const handleCheckout = async () => {
+    // Ensure that all fields are filled out
+    if (!shippingAddress || !paymentInfo || !contactInfo) {
+      setErrorMessage('Please fill in all fields');
+      return;
+    }
+
+    // Check if the user is logged in
+    const user = auth.currentUser;  // Get the currently logged-in user
+
+    if (!user) {
+      setErrorMessage('You must be logged in to proceed.');
+      return;
+    }
+
+    try {
+      // Save the checkout information to Firestore under the 'checkouts' collection
+      await setDoc(doc(firestore, 'checkouts', user.uid), {
+        shippingAddress,
+        paymentInfo,
+        contactInfo,
+        userId: user.uid,  // Include user UID to link to the correct user
+        timestamp: new Date(),
+      });
+
+      console.log('Checkout information saved to Firestore');
+      navigation.navigate('Payment');  // Navigate to Payment screen (or wherever you need)
+
+    } catch (error) {
+      console.error('Error saving checkout info: ', error);
+      setErrorMessage('An error occurred while processing your checkout.');
+    }
   };
 
   return (
@@ -68,6 +98,10 @@ export default function CheckoutScreen({ navigation }) {
           value={contactInfo}
           onChangeText={setContactInfo}
         />
+
+        {errorMessage ? (
+          <Text style={styles.errorMessage}>{errorMessage}</Text>
+        ) : null}
 
         <TouchableOpacity style={styles.checkoutButton} onPress={handleCheckout}>
           <Text style={styles.buttonText}>Proceed to Payment</Text>
@@ -153,5 +187,11 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     textAlign: 'center',
+  },
+  errorMessage: {
+    color: 'red',
+    fontSize: 14,
+    textAlign: 'center',
+    marginBottom: 10,
   },
 });
