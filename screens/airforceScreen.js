@@ -61,7 +61,7 @@ export default function AirForceScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#f0f8ff',
     alignItems: 'center',
     padding: 20,
   },
@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   price: {
-    fontSize: 24,
+    fontSize: 20,
     fontWeight: 'bold',
     color: '#333',
     marginBottom: 20,
@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   button: {
-    backgroundColor: '#007BFF',
+    backgroundColor: '#4682b4',
     paddingVertical: 12,
     paddingHorizontal: 40,
     borderRadius: 5,
