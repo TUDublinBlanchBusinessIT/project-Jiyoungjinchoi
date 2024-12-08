@@ -114,7 +114,7 @@ export default function CheckoutScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#f0f8ff',
     paddingHorizontal: 20,
   },
   header: {
