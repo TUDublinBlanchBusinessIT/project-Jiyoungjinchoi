@@ -21,7 +21,7 @@ export default function WishlistScreen({ navigation }) {
       <ScrollView style={styles.wishlistContainer}>
         <View style={styles.wishlistItem}>
           <Image
-            source={require('../assets/shoeicon.png')} // Replace with the actual image path
+            source={require('../assets/shoes1.jpeg')} // Replace with the actual image path
             style={styles.shoeImage}
           />
           <View style={styles.itemDetails}>
