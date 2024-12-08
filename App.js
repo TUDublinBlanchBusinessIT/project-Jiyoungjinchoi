@@ -7,6 +7,8 @@ import WishlistScreen from './screens/wishlistScreen';
 import AccountScreen from './screens/accountScreen';
 import RegisterScreen from './screens/registerScreen';
 import CheckoutScreen from './screens/checkoutScreen';
+import AirforceScreen from './screens/airforceScreen';
+
 
 const Stack = createStackNavigator();
 
@@ -42,6 +44,11 @@ export default function App() {
         <Stack.Screen
           name="Checkout"
           component={CheckoutScreen}
+          options={{ headerShown: false }} // Hide header for the register screen
+        />
+        <Stack.Screen
+          name="Airforce"
+          component={AirforceScreen}
           options={{ headerShown: false }} // Hide header for the register screen
         />
       </Stack.Navigator>

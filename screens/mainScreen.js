@@ -1,9 +1,9 @@
 import React from 'react';
 import { StyleSheet, Text, View, TextInput, Image, TouchableOpacity, ScrollView } from 'react-native';
-import { useNavigation } from '@react-navigation/native'; // Importing useNavigation hook
+import { useNavigation } from '@react-navigation/native'; 
 
 export default function MainScreen() {
-  const navigation = useNavigation(); // Using the useNavigation hook to navigate between screens
+  const navigation = useNavigation(); 
 
   return (
     <View style={styles.container}>
@@ -29,7 +29,7 @@ export default function MainScreen() {
           {/* Shoe 1 */}
           <TouchableOpacity
             style={styles.deal}
-            onPress={() => navigation.navigate('ShoeDetails', { shoeName: 'Air Force 1' })} // Navigate to shoe details screen
+            onPress={() => navigation.navigate('Airforce' , { shoeName: 'Air Force Red' })}
           >
             <Image
               source={require('../assets/shoes1.jpeg')}
@@ -42,7 +42,7 @@ export default function MainScreen() {
           {/* Shoe 2 */}
           <TouchableOpacity
             style={styles.deal}
-            onPress={() => navigation.navigate('ShoeDetails', { shoeName: 'Air Force Red' })} // Navigate to shoe details screen
+            onPress={() => navigation.navigate('ShoeDetails', { shoeName: 'Air Force Red' })} 
           >
             <Image
               source={require('../assets/shoes2.png')}
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#f0F8FF',
     paddingHorizontal: 20,
-    paddingBottom: 80, // Space for the footer
+    paddingBottom: 80, 
   },
   header: {
     alignItems: 'center',
@@ -148,7 +148,7 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderColor: '#ddd',
     paddingVertical: 20,
-    backgroundColor: '#fff', // Optional: Set background for footer to ensure it's visible
+    backgroundColor: '#fff', 
     position: 'absolute',
     bottom: 0,
     left: 0,

@@ -177,7 +177,7 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
   checkoutButton: {
-    backgroundColor: '#007BFF',
+    backgroundColor: '#4682b4',
     paddingVertical: 12,
     borderRadius: 5,
     marginBottom: 10,
