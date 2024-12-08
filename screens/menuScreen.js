@@ -73,14 +73,14 @@ const styles = StyleSheet.create({
     width: 30,
     height: 30,
     resizeMode: 'contain',
-    marginRight: 10, // Space between the house icon and the "Menu" text
+    marginRight: 10, 
   },
   headerText: {
     fontSize: 50,
     fontWeight: 'bold',
-    flex: 1, // Ensures the text stays centered
+    flex: 1, 
     textAlign: 'center',
-    marginRight: 40, // Extra margin to balance the header visually
+    marginRight: 40, 
   },
   menuItemContainer: {
     marginTop: 40,
@@ -106,13 +106,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingVertical: 10,
-    paddingLeft: 10, // Indent submenu items
+    paddingLeft: 10, 
     borderBottomWidth: 1,
     borderBottomColor: '#eee',
   },
   subMenuText: {
     fontSize: 16,
     color: '#555',
-    marginLeft: 10, // Space between icon and text
+    marginLeft: 10, 
   },
 });

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
-import { auth, firestore } from '../firebaseConfig';  // Import auth and firestore from firebaseConfig
-import { createUserWithEmailAndPassword } from 'firebase/auth';  // Import Firebase's auth method
-import { doc, setDoc } from 'firebase/firestore';  // Import Firestore methods
+import { auth, firestore } from '../firebaseConfig';  
+import { createUserWithEmailAndPassword } from 'firebase/auth';  
+import { doc, setDoc } from 'firebase/firestore';  
 
 export default function RegisterScreen({ navigation }) {
   const [email, setEmail] = useState('');
@@ -10,22 +10,22 @@ export default function RegisterScreen({ navigation }) {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
-  // Handle Registration logic
+  
   const handleRegister = async () => {
-    // Check if password and confirm password match
+    
     if (password !== confirmPassword) {
       setErrorMessage('Passwords do not match');
       return;
     }
 
     try {
-      // Create a new user with Firebase Authentication
+      
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
 
-      // Get the user ID (UID) from Firebase Auth
+      
       const user = userCredential.user;
 
-      // Create a user document in Firestore under the "users" collection
+      
       await setDoc(doc(firestore, "users", user.uid), {
         email: user.email,
         uid: user.uid,
@@ -34,10 +34,10 @@ export default function RegisterScreen({ navigation }) {
 
       console.log('User created successfully and saved to Firestore');
       
-      // Navigate to the main screen after successful registration
+      
       navigation.navigate('Main');
     } catch (error) {
-      // If there's an error during registration, show the error message
+      
       setErrorMessage(error.message);
     }
   };
@@ -48,7 +48,7 @@ export default function RegisterScreen({ navigation }) {
       <View style={styles.header}>
         <TouchableOpacity onPress={() => navigation.navigate('Main')}>
           <Image
-            source={require('../assets/houseicon.png')} // Replace with the correct icon path
+            source={require('../assets/houseicon.png')} 
             style={styles.headerIcon}
           />
         </TouchableOpacity>

@@ -19,37 +19,37 @@ export default function App() {
         <Stack.Screen
           name="Main"
           component={MainScreen}
-          options={{ headerShown: false }} // Hide header for the main screen
+          options={{ headerShown: false }} 
         />
         <Stack.Screen
           name="Menu"
           component={MenuScreen}
-          options={{ headerShown: false }} // Hide header for the menu screen
+          options={{ headerShown: false }} 
         />
         <Stack.Screen
           name="Wishlist"
           component={WishlistScreen}
-          options={{ headerShown: false }} // Hide header for the wishlist screen
+          options={{ headerShown: false }} 
         />
          <Stack.Screen
           name="Account"
           component={AccountScreen}
-          options={{ headerShown: false }} // Hide header for the account screen
+          options={{ headerShown: false }} 
         />
         <Stack.Screen
           name="Register"
           component={RegisterScreen}
-          options={{ headerShown: false }} // Hide header for the register screen
+          options={{ headerShown: false }} 
         />
         <Stack.Screen
           name="Checkout"
           component={CheckoutScreen}
-          options={{ headerShown: false }} // Hide header for the register screen
+          options={{ headerShown: false }} 
         />
         <Stack.Screen
           name="Airforce"
           component={AirforceScreen}
-          options={{ headerShown: false }} // Hide header for the register screen
+          options={{ headerShown: false }} 
         />
       </Stack.Navigator>
     </NavigationContainer>

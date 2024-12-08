@@ -6,7 +6,7 @@ export default function AccountScreen({ navigation }) {
   const [password, setPassword] = useState('');
 
   const handleSignIn = () => {
-    // Handle Sign In logic here
+    
     console.log('Signing in with', email, password);
   };
 
@@ -16,7 +16,7 @@ export default function AccountScreen({ navigation }) {
       <View style={styles.header}>
         <TouchableOpacity onPress={() => navigation.navigate('Main')}>
           <Image
-            source={require('../assets/houseicon.png')} // Replace with the correct icon path
+            source={require('../assets/houseicon.png')} 
             style={styles.headerIcon}
           />
         </TouchableOpacity>

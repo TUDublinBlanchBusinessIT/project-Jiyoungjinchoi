@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity, Picker } from 'react-native';
 
 export default function AirForceScreen({ navigation }) {
-  const [size, setSize] = useState('UK 3');  // Default size set to 'UK 3'
+  const [size, setSize] = useState('UK 3');  
 
   const handleAddToWishlist = () => {
-    // Navigate back to the Main Screen when the button is clicked
+    
     navigation.goBack();
   };
 
@@ -15,7 +15,7 @@ export default function AirForceScreen({ navigation }) {
       <View style={styles.header}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Image
-            source={require('../assets/houseicon.png')}  // Home icon to go back
+            source={require('../assets/houseicon.png')}  
             style={styles.headerIcon}
           />
         </TouchableOpacity>
@@ -27,7 +27,7 @@ export default function AirForceScreen({ navigation }) {
       
       {/* Image of Air Force 1 */}
       <Image
-        source={require('../assets/shoes1.jpeg')}  // Replace with the actual Air Force 1 image
+        source={require('../assets/shoes1.jpeg')}  
         style={styles.productImage}
       />
 

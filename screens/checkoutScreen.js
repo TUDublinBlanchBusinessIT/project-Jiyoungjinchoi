@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, ScrollView } from 'react-native';
-import { auth, firestore } from '../firebaseConfig';  // Import auth and firestore from firebaseConfig
-import { doc, setDoc } from 'firebase/firestore';  // Firestore methods
+import { auth, firestore } from '../firebaseConfig';  
+import { doc, setDoc } from 'firebase/firestore';  
 
 export default function CheckoutScreen({ navigation }) {
   const [shippingAddress, setShippingAddress] = useState('');
@@ -10,14 +10,14 @@ export default function CheckoutScreen({ navigation }) {
   const [errorMessage, setErrorMessage] = useState('');
 
   const handleCheckout = async () => {
-    // Ensure that all fields are filled out
+    
     if (!shippingAddress || !paymentInfo || !contactInfo) {
       setErrorMessage('Please fill in all fields');
       return;
     }
 
-    // Check if the user is logged in
-    const user = auth.currentUser;  // Get the currently logged-in user
+    
+    const user = auth.currentUser;  
 
     if (!user) {
       setErrorMessage('You must be logged in to proceed.');
@@ -25,17 +25,17 @@ export default function CheckoutScreen({ navigation }) {
     }
 
     try {
-      // Save the checkout information to Firestore under the 'checkouts' collection
+      
       await setDoc(doc(firestore, 'checkouts', user.uid), {
         shippingAddress,
         paymentInfo,
         contactInfo,
-        userId: user.uid,  // Include user UID to link to the correct user
+        userId: user.uid,  
         timestamp: new Date(),
       });
 
       console.log('Checkout information saved to Firestore');
-      navigation.navigate('Payment');  // Navigate to Payment screen (or wherever you need)
+      navigation.navigate('Payment'); 
 
     } catch (error) {
       console.error('Error saving checkout info: ', error);
@@ -49,7 +49,7 @@ export default function CheckoutScreen({ navigation }) {
       <View style={styles.header}>
         <TouchableOpacity onPress={() => navigation.navigate('Main')}>
           <Image
-            source={require('../assets/houseicon.png')} // Replace with the correct icon path
+            source={require('../assets/houseicon.png')} 
             style={styles.headerIcon}
           />
         </TouchableOpacity>
@@ -63,7 +63,7 @@ export default function CheckoutScreen({ navigation }) {
         {/* Wishlist Item */}
         <View style={styles.itemContainer}>
           <Image
-            source={require('../assets/shoes1.jpeg')} // Replace with the correct shoe image
+            source={require('../assets/shoes1.jpeg')} 
             style={styles.shoeImage}
           />
           <View style={styles.itemDetails}>
