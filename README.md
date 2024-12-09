@@ -1,9 +1,5 @@
 "# project-Jiyoungjinchoi" 
 
-It has been quite a challenging project while developing the SoleMate app. It gave me exposure to modern tools and technologies for building up an intuitive mobile platform that would be one of the most simple and easy shoe shopping experience. One can browse through a huge amount of varieties in shoes, find deals, and maintain the wishlist under one shelter in this shopping app.
-
-How AI helped me with the development of SoleMate: In development for SoleMate, I utilised AI tools such as Chat GPT to streamline the process, add on to the functionality of the app itself, and even optimise my work. Using AI allowed me to quickly prototype features and efficient code for my app.
-
 What is SoleMate doing?
 
 The SoleMate app is intended to be an all-inclusive shopping solution for customers.
